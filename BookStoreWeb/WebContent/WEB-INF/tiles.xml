@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+<tiles-definitions>  
+     <definition name="search.definition" template="/WEB-INF/jsp/tiles/searchLayout.jsp">
+    	<put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/jsp/tiles/searchHeader.jsp" />  
+        <put-attribute name="leftAddPane" value="/WEB-INF/jsp/tiles/leftAddPane.jsp" />  
+        <put-attribute name="body" value="" />  
+         <put-attribute name="rightAddPane" value="/WEB-INF/jsp/tiles/rightAddPane.jsp" />  
+        <put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp" />  
+    </definition>
+    
+    
+    <definition name="searchResult" extends="search.definition">  
+        <put-attribute name="title" value="Search Result" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/searchResult.jsp" />  
+    </definition>
+    
+    <definition name="search" extends="search.definition">  
+        <put-attribute name="title" value="Choose book for you" /> 
+        <put-attribute name="body" value="/WEB-INF/jsp/search.jsp" />  
+    </definition>
+    
+     <definition name="sugession" extends="search.definition">  
+        <put-attribute name="title" value="Choose book for you" /> 
+        <put-attribute name="body" value="/WEB-INF/jsp/bookStore.jsp" />  
+    </definition>
+    
+     <definition name="preparequestion" extends="search.definition">  
+        <put-attribute name="title" value="Prepare test" /> 
+        <put-attribute name="body" value="/WEB-INF/jsp/preparetest.jsp" />  
+    </definition>
+    
+    
+    
+</tiles-definitions>  
