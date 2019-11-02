@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bookstoredb.bean">
+    <class name="QuestionPaperDO" table="question_paper">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="userName" column="user_name"/>
+        <property name="createDate" type="date" column="create_date" />
+        <property name="modifiedDate" type="date" column="modified_date" />
+		<property name="targetEvent" column="target_event" />
+		<property name="paperName" column="paper_name" />
+		<property name="data" column="data" />
+		<property name="description" column="description" />
+		<property name="info" column="info" />
+    </class> 
+    
+    <query name="find_paper_by_ids">
+    <![CDATA[ select new com.bookstoredb.bean.to.ResultEntryTO(qp.paperName, qp.userName, qp.id) from QuestionPaperDO qp where id in(:ids)]]>
+    
+    </query>
+    
+    <query name="find_paper_by_id">
+    <![CDATA[ select new com.bookstoredb.bean.to.CustomQuestionPaperTO(userName,paperName,data ) from QuestionPaperDO where id = :id]]>
+    
+    </query>
+    
+     <!-- <query name="find_paper_by_id_event_a">
+    <![CDATA[ select new com.bookstoredb.bean.to.ResultEntryTO(qp.paperName) from
+	   	EventADO ea
+		inner join EventIEventADO eiea on eiea.idEventA = ea.id
+		inner join EventIDO ei on ei.id = eiea.idEventI
+		inner join QuestionPaperDO qp on qp.id = ei.idQuestionPaper 
+		where ea.id = :id]]>
+    </query> -->
+</hibernate-mapping>
